@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "880915372671",
+    "project_id": "mdev-recipe-book",
+    "storage_bucket": "mdev-recipe-book.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880915372671:android:d946c2dbd57d1d7fce3d4a",
+        "android_client_info": {
+          "package_name": "com.assignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGQty-9XG7W9Ie1NTHnQewtl47L3ev_Z8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880915372671:android:d994a3e42cc9d188ce3d4a",
+        "android_client_info": {
+          "package_name": "com.example.recipe_book"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGQty-9XG7W9Ie1NTHnQewtl47L3ev_Z8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
