@@ -1,8 +1,11 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import CustomListItem from "./list_tile";
+import { useUser } from "../usercontext";
 
 const ProfileScreen = ({ navigation }: any) => {
+  const { user, signOut } = useUser();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -10,7 +13,7 @@ const ProfileScreen = ({ navigation }: any) => {
           source={require("../../assets/profile.png")}
           style={styles.profileImage}
         />
-        <Text style={styles.username}>John Doe</Text>
+        <Text style={styles.username}>{user?.name}</Text>
       </View>
 
       <CustomListItem
@@ -40,12 +43,16 @@ const ProfileScreen = ({ navigation }: any) => {
       <CustomListItem
         title="Logout"
         imageSource={require("../../assets/logout.png")}
-        onPress={() =>
+        onPress={()=>{
+          signOut();
+
+
           navigation.reset({
             index: 0,
             routes: [{ name: "Login" }],
           })
         }
+      }
       />
     </View>
   );

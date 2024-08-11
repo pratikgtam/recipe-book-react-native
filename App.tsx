@@ -12,11 +12,13 @@ import Signup from './src/components/SignupScreen';
 import Login from './src/components/LoginScreen';
 import TabNavigator from './src/navigation/TabNavigator';
 import {enableScreens} from 'react-native-screens';
+import { UserProvider } from './src/usercontext';
 enableScreens();
 function App() {
   const Stack = createNativeStackNavigator();
   // return <Login />;
   return (
+    <UserProvider>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Recipes" component={RecipesScreen} />
@@ -33,6 +35,7 @@ function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
+    </UserProvider>
   );
 }
 export default App;

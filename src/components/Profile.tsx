@@ -1,17 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { useUser } from "../usercontext";
 
 const ProfileScreen: React.FC = () => {
+  const { user, signOut } = useUser();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Profile</Text>
       <View style={styles.profileInfo}>
         <Text style={styles.label}>Name:</Text>
-        <Text style={styles.value}>John Doe</Text>
+        <Text style={styles.value}>{user?.name}</Text>
         <Text style={styles.label}>Email:</Text>
-        <Text style={styles.value}>john@example.com</Text>
-        <Text style={styles.label}>Phone:</Text>
-        <Text style={styles.value}>+1 (234) 567-890</Text>
+        <Text style={styles.value}>{user?.email}</Text>
+        
       </View>
     </View>
   );

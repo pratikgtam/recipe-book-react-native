@@ -11,6 +11,7 @@ import {
   doCreateUserWithEmailAndPassword,
   saveUserToFirestore,
 } from '../services/authentication';
+import { useUser } from '../usercontext';
 
 const Signup = ({navigation}: any) => {
   const [name, setName] = useState<string>('');
@@ -19,6 +20,7 @@ const Signup = ({navigation}: any) => {
   const [age, setAge] = useState<string>('');
   const [address, setAddress] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  const { signIn } = useUser();
 
   const handleSignUp = async () => {
     if (!name.trim()) {
@@ -65,6 +67,8 @@ const Signup = ({navigation}: any) => {
     await doCreateUserWithEmailAndPassword(email, password)
       .then(cred => {
         saveUserToFirestore(cred.user.uid, name, email, address, age);
+        signIn({name: name, email: email});
+
         navigation.replace('Home');
       })
       .catch(error => {

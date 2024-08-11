@@ -10,11 +10,13 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {doSignInWithEmailAndPassword} from '../services/authentication';
+import { useUser } from '../usercontext';
 
 const Login: React.FC = ({navigation}: any) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  const { signIn } = useUser();
 
   const handleLogin = () => {
     if (!email.trim()) {
@@ -34,7 +36,9 @@ const Login: React.FC = ({navigation}: any) => {
     // Check if input email and password match any entry in the list
     setLoading(true);
     doSignInWithEmailAndPassword(email, password)
-      .then(() => {
+      .then((res) => {
+console.log(res);
+        signIn({name: res?.displayName, email: res?.email});
         console.log('User logged in successfully');
         navigation.replace('Home');
       })
