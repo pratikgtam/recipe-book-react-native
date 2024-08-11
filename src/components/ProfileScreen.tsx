@@ -23,12 +23,6 @@ const ProfileScreen = ({ navigation }: any) => {
       />
 
       <CustomListItem
-        title="My Recipes"
-        imageSource={require("../../assets/house.png")}
-        onPress={() => navigation.navigate("Recipes")}
-      />
-
-      <CustomListItem
         title="Notifications"
         imageSource={require("../../assets/notification.png")}
         onPress={() => navigation.navigate("Notifications")}

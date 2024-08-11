@@ -8,25 +8,22 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {doSignInWithEmailAndPassword} from '../services/authentication';
-import { useUser } from '../usercontext';
 
-const Login: React.FC = ({navigation}: any) => {
+import {doPasswordReset,} from '../services/authentication';
+
+
+const ForgotPassword: React.FC = ({navigation}: any) => {
   const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  
   const [loading, setLoading] = useState<boolean>(false);
-  const { signIn } = useUser();
+  
 
-  const handleLogin = () => {
+  const onSubmit = () => {
     if (!email.trim()) {
       Alert.alert('Please enter your email address');
       return;
     }
-    if (!password.trim()) {
-      Alert.alert('Please enter your password');
-      return;
-    }
+    
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       Alert.alert('Please enter a valid email address');
@@ -35,12 +32,12 @@ const Login: React.FC = ({navigation}: any) => {
 
     // Check if input email and password match any entry in the list
     setLoading(true);
-    doSignInWithEmailAndPassword(email, password)
+    doPasswordReset(email)
       .then((res) => {
 console.log(res);
-        signIn({name: res?.displayName, email: res?.email});
-        console.log('User logged in successfully');
-        navigation.replace('Home');
+        
+        console.log('Email sent successfully to reset password');
+        navigation.replace('Login');
       })
       .catch(error => {
         console.error('Error logging in:', error);
@@ -49,17 +46,12 @@ console.log(res);
     setLoading(false);
   };
 
-  const handleForgotPassword = () => {
-    navigation.replace('Forgot Password');
-  };
+  
 
-  const handleSignUp = () => {
-    navigation.replace('Signup');
-  };
+  
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.heading}>Login</Text>
 
       <View style={styles.inputContainer}>
         <TextInput
@@ -70,30 +62,13 @@ console.log(res);
           value={email}
         />
       </View>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor={'#A9A9A9'}
-          secureTextEntry
-          onChangeText={text => setPassword(text)}
-          value={password}
-        />
-      </View>
-      <View style={styles.forgotPasswordContainer}>
-        <TouchableOpacity onPress={handleForgotPassword}>
-          <Text style={styles.forgotPassword}>Forgot Password?</Text>
-        </TouchableOpacity>
-      </View>
-      <TouchableOpacity onPress={handleLogin} style={styles.loginButton}>
+      
+      <TouchableOpacity onPress={onSubmit} style={styles.loginButton}>
         <Text style={styles.loginButtonText}>
-          {loading ? 'Loading...' : 'Login'}
+          {loading ? 'Loading...' : 'Submit'}
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleSignUp}>
-        <Text style={styles.signUpLink}>Don't have an account? Sign Up</Text>
-      </TouchableOpacity>
+      
     </ScrollView>
   );
 };
@@ -113,7 +88,8 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    
+    marginTop: 32,
   },
   input: {
     flex: 1,
@@ -150,4 +126,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default ForgotPassword;

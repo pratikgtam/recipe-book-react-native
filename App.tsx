@@ -13,6 +13,7 @@ import Login from './src/components/LoginScreen';
 import TabNavigator from './src/navigation/TabNavigator';
 import {enableScreens} from 'react-native-screens';
 import { UserProvider } from './src/usercontext';
+import ForgotPassword from './src/components/forgot_password';
 enableScreens();
 function App() {
   const Stack = createNativeStackNavigator();
@@ -28,6 +29,7 @@ function App() {
         <Stack.Screen name="My Profile" component={ProfileDetailScreen} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Forgot Password" component={ForgotPassword} />
         <Stack.Screen
           name="Home"
           component={TabNavigator}
