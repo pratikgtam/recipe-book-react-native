@@ -11,7 +11,7 @@ import {
   doCreateUserWithEmailAndPassword,
   saveUserToFirestore,
 } from '../services/authentication';
-import { useUser } from '../usercontext';
+import { useUser } from '../context/usercontext';
 
 const Signup = ({navigation}: any) => {
   const [name, setName] = useState<string>('');

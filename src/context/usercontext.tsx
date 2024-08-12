@@ -1,11 +1,8 @@
 // UserContext.tsx
 import React, { createContext, useState, useContext, ReactNode } from 'react';
+import { User } from '../models/user_model';
 
-interface User {
-  name: string;
-  email: string;
-  
-}
+
 
 interface UserContextType {
   user: User | null;

@@ -2,13 +2,8 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import { getNotificationsFromFirestore } from "../services/notifications_service";
 import { DocumentData } from "firebase/firestore";
+import { Notification } from "../models/notification_model";
 
-export interface Notification {
-  id: string;
-  title: string;
-  description: string;
-  createdAt: string;
-}
 
 const NotificationScreen: React.FC = () => {
 

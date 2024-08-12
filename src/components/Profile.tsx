@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { useUser } from "../usercontext";
+import { useUser } from "../context/usercontext";
 
 const ProfileScreen: React.FC = () => {
-  const { user, signOut } = useUser();
+  const { user } = useUser();
 
   return (
     <View style={styles.container}>

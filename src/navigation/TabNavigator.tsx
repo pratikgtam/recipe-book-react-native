@@ -14,19 +14,6 @@ const TabNavigator: React.FC = () => {
     <Tab.Navigator
       initialRouteName="Welcome"
       tabBar={props => <BottomTabBar {...props} />}
-      // screenOptions={({route}) => ({
-      //   tabBarIcon: ({focused, color, size}) => {
-      //     let iconName;
-
-      //     if (route.name === 'Welcome') {
-      //       iconName = focused ? 'home' : 'home-outline';
-      //     } else if (route.name === 'Profile') {
-      //       iconName = focused ? 'account' : 'account-outline';
-      //     }
-
-      //     return <Icon name="home" size={size} color={color} />;
-      //   },
-      // })}
     >
       <Tab.Screen
         name="Welcome"

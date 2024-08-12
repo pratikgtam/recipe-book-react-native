@@ -3,8 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
-  Linking,
+  
 } from "react-native";
 
 const ContactUsScreen: React.FC = () => {

@@ -12,7 +12,7 @@ import Signup from './src/components/SignupScreen';
 import Login from './src/components/LoginScreen';
 import TabNavigator from './src/navigation/TabNavigator';
 import {enableScreens} from 'react-native-screens';
-import { UserProvider } from './src/usercontext';
+import { UserProvider } from './src/context/usercontext';
 import ForgotPassword from './src/components/forgot_password';
 enableScreens();
 function App() {

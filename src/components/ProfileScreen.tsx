@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import CustomListItem from "./list_tile";
-import { useUser } from "../usercontext";
+import { useUser } from "../context/usercontext";
 
 const ProfileScreen = ({ navigation }: any) => {
   const { user, signOut } = useUser();

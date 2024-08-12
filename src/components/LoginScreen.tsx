@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {doSignInWithEmailAndPassword} from '../services/authentication';
-import { useUser } from '../usercontext';
+import { useUser } from '../context/usercontext';
 
 const Login: React.FC = ({navigation}: any) => {
   const [email, setEmail] = useState<string>('');
