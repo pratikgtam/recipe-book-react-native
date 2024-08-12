@@ -37,7 +37,7 @@ const Login: React.FC = ({navigation}: any) => {
     setLoading(true);
     doSignInWithEmailAndPassword(email, password)
       .then((res) => {
-console.log(res);
+    console.log(res);
         signIn({name: res?.displayName, email: res?.email});
         console.log('User logged in successfully');
         navigation.replace('Home');

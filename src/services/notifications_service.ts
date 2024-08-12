@@ -6,7 +6,7 @@ import {
   setDoc,
 } from 'firebase/firestore';
 import {db} from './firebase';
-import {Notification} from '../components/Notifications';
+import {Notification} from '../models/notification_model';
 
 export const getNotificationsFromFirestore = async () => {
   try {
