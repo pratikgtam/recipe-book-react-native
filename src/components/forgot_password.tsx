@@ -34,14 +34,13 @@ const ForgotPassword: React.FC = ({navigation}: any) => {
     setLoading(true);
     doPasswordReset(email)
       .then((res) => {
-console.log(res);
-        
-        console.log('Email sent successfully to reset password');
+        console.log(res);
+        Alert.alert('Email sent successfully to reset password');
         navigation.replace('Login');
       })
       .catch(error => {
         console.error('Error logging in:', error);
-        Alert.alert('Invalid email or password');
+        Alert.alert('Something went wrong. Please try again later.');
       });
     setLoading(false);
   };
